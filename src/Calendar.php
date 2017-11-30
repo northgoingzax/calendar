@@ -361,7 +361,7 @@ class Calendar
     /**
      * 
      * @param int $start the array key to start at
-     * @param array $days days to highlight, use exact day of month, e.g. 1,3,5
+     * @param int $month the month of the year 1-12
      * @return string
      */
     private function _drawRow($start,$month) {
