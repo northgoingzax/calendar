@@ -145,6 +145,7 @@ class Calendar
     /**
      * Add multiple dates, these can be for any month within the year
      * @param array $days Any dates that will be validated by strtotime()
+     * @param string $label any text that you wish to be displayed when hovering over ALL of these days
      */
     public function addDays($days = array(), $label = null) {
         foreach($days as $k => $day) {
