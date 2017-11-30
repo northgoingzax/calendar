@@ -134,6 +134,7 @@ class Calendar
     /**
      * Add a single day to be highlighted
      * @param string|date $day Any date that will be validated by strtotime()
+     * @param string $label any text that you wish to be displayed when hovering over this day
      */
     public function addDay($day = null, $label = null) {
         $date = date('Y-m-d',strtotime($day));
@@ -208,8 +209,8 @@ class Calendar
     
     /**
      * Generate an array of dates between two dates
-     * @param date $start_date
-     * @param date $end_date
+     * @param date $start_date the start date, any format but default to Y-m-d
+     * @param date $end_date the end date, any format but default to Y-m-d
      * @return array [0] = Y-m-d, [1] = Y-m-d, etc.
      */
     private function _makeDateRange($start_date, $end_date) {
