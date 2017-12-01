@@ -4,7 +4,7 @@ namespace Northgoingzax\Calendar;
  * github.com/northgoingzax/calendar
  * @package bs-calendar
  * @author Alex Gordon
- * @version 1.0.2
+ * @version 1.0.3
  * See the Readme for examples
   */
 class Calendar
