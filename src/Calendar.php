@@ -111,7 +111,7 @@ class Calendar
     /**
      * Instantiate class and set year, defaults to current year.
      * @param int $year full year e.g. 2017 must be 4 chars long
-     * @param array $options pass any settings in one go. Use function name followed by value, e.g. ['setWeekends']=>true
+     * @param array $options pass any settings in one go. Use variable name followed by value, e.g. ['isWeekends']=>true
      */
     public function __construct($year = null,$options = array()) {
         // Default to current year
@@ -250,7 +250,7 @@ class Calendar
         // some months may be 7x6 = 42, so all tables to be 7x6
         $cells = 42;
 		
-        // key, starting at 1, represents each cell, so the first Monday is 1 and the last Sunday is 35
+        // key, starting at 1, represents each cell, so the first Monday is 1 and the last Sunday is 42
         $days = array();
         
         // Define numeric value for month (e.g. 01, 02, 03)
