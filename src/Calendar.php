@@ -1,5 +1,5 @@
 <?php
-namespace Northgoingzax\Calendar;
+namespace northgoingzax;
 /**
  * github.com/northgoingzax/calendar
  * @package bs-calendar
