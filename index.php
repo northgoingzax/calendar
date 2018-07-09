@@ -5,10 +5,11 @@ require_once 'src/Calendar.php';
 use northgoingzax\Calendar;
 
 $cal = new Calendar();
-$cal->publicHolidayTerm = 'Jeff Day';
-$cal->addDateRange('2018-07-13','2018-07-20','weekends');
-$cal->addPublicHoliday('2018-07-21','This is a bank holiday');
-$cal->addPublicHoliday('2018-07-22');
+$cal->addDays([
+    '2018-06-01',
+    '2018-06-02',
+    '2018-06-03',
+]);
 
 ?>
 <html>
@@ -33,7 +34,7 @@ $cal->addPublicHoliday('2018-07-22');
             <div class="col-md-10">
                 <h4>2018</h4>
                 
-                <?= $cal->drawMonth(7) ?> 
+                <?= $cal->drawYear() ?> 
                 
             </div>
         </div>
