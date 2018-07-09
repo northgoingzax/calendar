@@ -17,13 +17,13 @@ composer require northgoingzax/calendar
 ````
 Wherever you need to use it
 ````php
-use northgoingzax\calendar;
+use northgoingzax\Calendar;
 ````
 ### Non-composer
-Download the files [github.com/northgoingzax/calendar]()
+Download the files [github.com/northgoingzax/calendar](https://github.com/northgoingzax/calendar)
 ````php
 require_once 'src/Calendar.php';
-use northgoingzax\calendar;
+use northgoingzax\Calendar;
 ````
 
 ## CSS & JS

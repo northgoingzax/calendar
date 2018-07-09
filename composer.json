@@ -1,6 +1,7 @@
 {
     "name": "northgoingzax/calendar",
     "description": "A simple PHP class producing a Bootstrap 3 themed monthly calendar using tables.",
+    "version" : "1.0.0",
     "type": "library",
     "license": "MIT",
     "homepage": "http://github.com/northgoingzax/calendar",
