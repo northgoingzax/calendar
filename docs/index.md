@@ -37,11 +37,12 @@ bower install jquery
 ````
 
 **Tooltip**
+
 To use tooltips you need to call it from your script, as per Bootstrap documentation.
 Because the calendar is a bunch of tables, you need to tell the tooltip to render in the body, not the current div.
-````js
+````html
 <script>
-	$(function () {
+    $(function () {
         $('[data-toggle="tooltip"]').tooltip({
             container: 'body'
         })
