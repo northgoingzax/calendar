@@ -113,6 +113,8 @@ $cal->addDay('2018-06-02','Reason for 2nd June');
 $cal->addDay('2018-06-03','Reason for 3rd June');
 ````
 
+![Example 2](https://northgoingzax.github.io/calendar/example2.jpg)
+
 The **addDays()** method just wraps the **addDay()** method in a loop anyway.
 
 **Example 2: Draw an individual month**
@@ -165,19 +167,21 @@ Depending on how your data is structured, you database might be stored in ranges
 
 To add this date range, use the **addDateRange($start,$end,$label)** method
 ````php
-$cal->addDateRange('2018-02-04', '2018-02-14', 'Week in Portugal')
+$cal->addDateRange('2018-02-05', '2018-02-09', 'Week in Portugal');
 ````
+
+![Example 3](https://northgoingzax.github.io/calendar/example3.jpg)
 
 **Example 5: Public Holidays**
 
 This follows the same principal as normal date ranges, but with different method names:
 
-**addBankHoliday(string $day, string $label)**
-**addBankHolidays(array $days, string $label)**
+**addPublicHoliday(string $day, string $label)**
+**addPublicHolidays(array $days, string $label)**
 ````php
-$cal->addBankHoliday('2018-05-01','May Day');
+$cal->addPublicHoliday('2018-05-01','May Day');
 
-$cal->addBankHolidays(['2018-12-25','2018-12-26'], 'Festive');
+$cal->addPublicHolidays(['2018-12-25','2018-12-26'], 'Festive');
 ````
 
 **Example 6: Other Dates**

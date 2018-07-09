@@ -5,11 +5,8 @@ require_once 'src/Calendar.php';
 use northgoingzax\Calendar;
 
 $cal = new Calendar();
-$cal->addDays([
-    '2018-06-01',
-    '2018-06-02',
-    '2018-06-03',
-]);
+$cal->addDateRange('2018-02-05', '2018-02-14', 'Week in Portugal');
+$cal->isWeekends = true;
 
 ?>
 <html>
