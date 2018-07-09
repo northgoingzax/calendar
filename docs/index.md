@@ -54,7 +54,6 @@ Because the calendar is a bunch of tables, you need to tell the tooltip to rende
 You will also need to include the **css/calendar.css** style sheet.
 
 **Complete example**
-
 ````html
 <html>
 <head>
@@ -184,7 +183,6 @@ $cal->addOtherDates(['2018-07-04','2018-07-05','2018-07-06'], 'Sick');
 You can override most default functions after creating the object by modifying the public params.
 
 **Year**
-
 You can create calendars for any year by passing the year into the constructor.
 ````php
 $cal = new Calendar(2015);
@@ -192,7 +190,6 @@ $cal = new Calendar(2015);
 This is really important. even though you are passing dates in with each method, because this is used to work out the days of the week for the calendar layouts. If you don't provide a specific year it will default to the current year.
 
 **Weekends**
-
 When providing dates to highlight you can force the weekends on or off. 
 This might be used if you are using it for a holiday system but you input a date range that includes weekends.
 
@@ -204,14 +201,12 @@ $cal->isWeekends = false; // turn off weekend highlighting
 PICTURE HERE
 
 **Trailing Days**
-
 When a month starts on a Wednesday for example, you can turn the previous dates on or off. The default is to show them, the font colour is muted.
 ````php
 $cal->isTrailingDays = true; // default
 $cal->isTrailingDays = false; // trailing days are empty cells
 ````
 **Week Starting Day**
-
 If you are of an unusual disposition you can override the sensible option of having the week start on a Monday, and you can specify the week to start on a Sunday.
 ````php
 $cal->weekStartsOn = 'Monday'; // default
@@ -219,7 +214,6 @@ $cal->weekStartsOn = 'Sunday'; // for the unhinged
 ````
 
 **Change highlighting colours**
-
 These take class names, you can use anything that exists in your style sheet. Aisde from the yellow for public holidays that are in the calendar.css file, most are Bootstrap defaults.
 ````php
 $cal->highlightClass = 'primary'; // Default (bootstrap)
@@ -228,7 +222,6 @@ $cal->otherDateClass = 'danger'; // Default (bootstrap)
 ````
 
 **Term for public holidays**
-
 Default is "Public Holiday" but you can override for your country specific term. E.g. in the UK we call them Bank Holidays
 ````php
 $cal->publicHolidayTerm = 'Public Holiday'; // default
