@@ -152,7 +152,7 @@ foreach ($result as $r) {
 ````
 
 
-**Example 4: Date Ranges **
+**Example 4: Date Ranges**
 
 Depending on how your data is structured, you database might be stored in ranges rather than individual dates.
 
@@ -165,7 +165,7 @@ To add this date range, use the **addDateRange($start,$end,$label)** method
 $cal->addDateRange('2018-02-04', '2018-02-14', 'Week in Portugal')
 ````
 
-**Example 5: Public Holidays **
+**Example 5: Public Holidays**
 
 This follows the same principal as normal date ranges, but with different method names:
 
@@ -177,7 +177,7 @@ $cal->addBankHoliday('2018-05-01','May Day');
 $cal->addBankHolidays(['2018-12-25','2018-12-26'], 'Festive');
 ````
 
-**Example 6: Other dates **
+**Example 6: Other Dates**
 
 If you have any other category you want to highlight, you can use **addOtherDates**
 
@@ -225,7 +225,7 @@ $cal->weekStartsOn = 'Monday'; // default
 $cal->weekStartsOn = 'Sunday'; // for the unhinged
 ````
 
-**Change highlighting colours**
+**Change Highlighting Colours**
 
 These take class names, you can use anything that exists in your style sheet. Aisde from the yellow for public holidays that are in the calendar.css file, most are Bootstrap defaults.
 ````php
@@ -234,7 +234,7 @@ $cal->publicHolidayClass = 'public-holiday'; // Default (custom)
 $cal->otherDateClass = 'danger'; // Default (bootstrap)
 ````
 
-**Term for public holidays**
+**Term for Public Holidays**
 
 Default is "Public Holiday" but you can override for your country specific term. E.g. in the UK we call them Bank Holidays
 ````php
@@ -242,7 +242,7 @@ $cal->publicHolidayTerm = 'Public Holiday'; // default
 $cal->publicHolidayTerm = 'Bank Holiday'; // custom
 ````
 
-## Customisation alternative
+## Customisation Alternative
 If you have a lot of customisation, or you just prefer to code a different way, you can also pass all the customisation options into the constructor.
 
 ````php
