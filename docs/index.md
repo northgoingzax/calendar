@@ -37,11 +37,12 @@ bower install jquery
 ````
 
 **Tooltip**
+
 To use tooltips you need to call it from your script, as per Bootstrap documentation.
 Because the calendar is a bunch of tables, you need to tell the tooltip to render in the body, not the current div.
-````js
+````html
 <script>
-	$(function () {
+    $(function () {
         $('[data-toggle="tooltip"]').tooltip({
             container: 'body'
         })
@@ -50,6 +51,7 @@ Because the calendar is a bunch of tables, you need to tell the tooltip to rende
 ````
 
 **calendar.css**
+
 You will also need to include the **css/calendar.css** style sheet.
 
 **Complete example**
@@ -80,6 +82,7 @@ You will also need to include the **css/calendar.css** style sheet.
 
 ## Usage
 **Example 1: Simple array of dates**
+
 To create a default calendar for the current year, and highlight 3 days in June.
 ````php
 $cal = new Calendar();
@@ -110,6 +113,7 @@ $cal->addDay('2018-06-03','Reason for 3rd June');
 The **addDays()** method just wraps the **addDay()** method in a loop anyway.
 
 **Example 2: Draw an individual month**
+
 At any time you can draw a single month from the year. Use the **drawMonth(int $month)** method where 1 = January, 2 = February, 12 = December
 
 ````php
@@ -118,6 +122,7 @@ echo $cal->drawMonth(6);
 ````
 
 **Example 3: Adding mulitple dates after database query**
+
 Assume you have a data source from your database
 
 |id | date | reason |
@@ -147,7 +152,8 @@ foreach ($result as $r) {
 ````
 
 
-**Example 4: Date Ranges **
+**Example 4: Date Ranges**
+
 Depending on how your data is structured, you database might be stored in ranges rather than individual dates.
 
 | id | start_date | end_date | reason |
@@ -159,21 +165,25 @@ To add this date range, use the **addDateRange($start,$end,$label)** method
 $cal->addDateRange('2018-02-04', '2018-02-14', 'Week in Portugal')
 ````
 
-**Example 5: Public Holidays **
+**Example 5: Public Holidays**
+
 This follows the same principal as normal date ranges, but with different method names:
 
 **addBankHoliday(string $day, string $label)**
 **addBankHolidays(array $days, string $label)**
 ````php
 $cal->addBankHoliday('2018-05-01','May Day');
+
 $cal->addBankHolidays(['2018-12-25','2018-12-26'], 'Festive');
 ````
 
-**Example 6: Other dates **
+**Example 6: Other Dates**
+
 If you have any other category you want to highlight, you can use **addOtherDates**
 
 ````php
 $cal->addOtherDate('2018-07-03','Work summer party');
+
 $cal->addOtherDates(['2018-07-04','2018-07-05','2018-07-06'], 'Sick');
 ````
 
@@ -181,6 +191,7 @@ $cal->addOtherDates(['2018-07-04','2018-07-05','2018-07-06'], 'Sick');
 You can override most default functions after creating the object by modifying the public params.
 
 **Year**
+
 You can create calendars for any year by passing the year into the constructor.
 ````php
 $cal = new Calendar(2015);
@@ -188,6 +199,7 @@ $cal = new Calendar(2015);
 This is really important. even though you are passing dates in with each method, because this is used to work out the days of the week for the calendar layouts. If you don't provide a specific year it will default to the current year.
 
 **Weekends**
+
 When providing dates to highlight you can force the weekends on or off. 
 This might be used if you are using it for a holiday system but you input a date range that includes weekends.
 
@@ -199,19 +211,22 @@ $cal->isWeekends = false; // turn off weekend highlighting
 PICTURE HERE
 
 **Trailing Days**
+
 When a month starts on a Wednesday for example, you can turn the previous dates on or off. The default is to show them, the font colour is muted.
 ````php
 $cal->isTrailingDays = true; // default
 $cal->isTrailingDays = false; // trailing days are empty cells
 ````
 **Week Starting Day**
+
 If you are of an unusual disposition you can override the sensible option of having the week start on a Monday, and you can specify the week to start on a Sunday.
 ````php
 $cal->weekStartsOn = 'Monday'; // default
 $cal->weekStartsOn = 'Sunday'; // for the unhinged
 ````
 
-**Change highlighting colours**
+**Change Highlighting Colours**
+
 These take class names, you can use anything that exists in your style sheet. Aisde from the yellow for public holidays that are in the calendar.css file, most are Bootstrap defaults.
 ````php
 $cal->highlightClass = 'primary'; // Default (bootstrap)
@@ -219,20 +234,21 @@ $cal->publicHolidayClass = 'public-holiday'; // Default (custom)
 $cal->otherDateClass = 'danger'; // Default (bootstrap)
 ````
 
-**Term for public holidays**
+**Term for Public Holidays**
+
 Default is "Public Holiday" but you can override for your country specific term. E.g. in the UK we call them Bank Holidays
 ````php
 $cal->publicHolidayTerm = 'Public Holiday'; // default
 $cal->publicHolidayTerm = 'Bank Holiday'; // custom
 ````
 
-## Customisation alternative
+## Customisation Alternative
 If you have a lot of customisation, or you just prefer to code a different way, you can also pass all the customisation options into the constructor.
 
 ````php
 // Declare any options in an associative array
 $options = [
-	'isWeekends' => true,
+    'isWeekends' => true,
     'isTrailingDays' => true,
     'weekStartsOn' => 'Monday',
     'highlightClass' => 'primary',
@@ -243,12 +259,3 @@ $options = [
 
 $cal = new Calendar(2018, $options);
 ````
-
-
-
-
-
-
-
-
-
