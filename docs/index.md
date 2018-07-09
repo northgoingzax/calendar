@@ -113,9 +113,9 @@ $cal->addDay('2018-06-02','Reason for 2nd June');
 $cal->addDay('2018-06-03','Reason for 3rd June');
 ````
 
-![Example 2](https://northgoingzax.github.io/calendar/example2.jpg)
-
 The **addDays()** method just wraps the **addDay()** method in a loop anyway.
+
+![Example 2](https://northgoingzax.github.io/calendar/example2.jpg)
 
 **Example 2: Draw an individual month**
 
@@ -203,7 +203,7 @@ You can create calendars for any year by passing the year into the constructor.
 ````php
 $cal = new Calendar(2015);
 ````
-This is really important. even though you are passing dates in with each method, because this is used to work out the days of the week for the calendar layouts. If you don't provide a specific year it will default to the current year.
+This is really important, even though you are passing dates in with each method, because this is used to work out the days of the week for the calendar layouts. If you don't provide a specific year it will default to the current year.
 
 **Weekends**
 
@@ -215,7 +215,8 @@ $cal = new Calendar();
 $cal->isWeekends = true; // default 
 $cal->isWeekends = false; // turn off weekend highlighting
 ````
-PICTURE HERE
+
+![Example 5](https://northgoingzax.github.io/calendar/example5.jpg)
 
 **Trailing Days**
 
