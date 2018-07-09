@@ -94,6 +94,9 @@ $cal->addDays([
 echo $cal->drawYear();
 ````
 This will highlight the first 3 days in June.
+
+![Example 1](https://northgoingzax.github.io/calendar/example1.jpg)
+
 To add a label to these 3 days, use the label parameter.
 ````php
 $cal->addDays([
