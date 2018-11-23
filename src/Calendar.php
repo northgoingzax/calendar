@@ -202,7 +202,7 @@ class Calendar
     /**
      * Add multiple additional dates to be highlighted, these can be for any month within the year
      * @param array $days Any dates that will be validated by strtotime()
-      @param string $label The label for these dates
+     * @param string $label The label for these dates
      */
     public function addOtherDates($days = array(), $label = null) {
         foreach ($days as $k => $day) {
