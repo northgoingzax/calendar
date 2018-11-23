@@ -1,5 +1,3 @@
-/* Version 1.0.4 */
-
 .table > thead > tr > td.primary,
 .table > tbody > tr > td.primary,
 .table > tfoot > tr > td.primary,
@@ -23,17 +21,21 @@
   color:#fff;
 }
 
-.table > thead > tr > td.bankholidays, 
-.table > tbody > tr > td.bankholidays, 
-.table > tfoot > tr > td.bankholidays, 
-.table > thead > tr > th.bankholidays, 
-.table > tbody > tr > th.bankholidays, 
-.table > tfoot > tr > th.bankholidays, 
-.table > thead > tr.bankholidays > td, 
-.table > tbody > tr.bankholidays > td, 
-.table > tfoot > tr.bankholidays > td, 
-.table > thead > tr.bankholidays > th, 
-.table > tbody > tr.bankholidays > th, 
-.table > tfoot > tr.bankholidays > th {
+.table > thead > tr > td.public-holiday, 
+.table > tbody > tr > td.public-holiday, 
+.table > tfoot > tr > td.public-holiday, 
+.table > thead > tr > th.public-holiday, 
+.table > tbody > tr > th.public-holiday, 
+.table > tfoot > tr > th.public-holiday, 
+.table > thead > tr.public-holiday > td, 
+.table > tbody > tr.public-holiday > td, 
+.table > tfoot > tr.public-holiday > td, 
+.table > thead > tr.public-holiday > th, 
+.table > tbody > tr.public-holiday > th, 
+.table > tfoot > tr.public-holiday > th {
     background-color: #f9e05d;
+}
+
+.pointer {
+    cursor: pointer;
 }

@@ -1,24 +1,29 @@
 {
-	"name": "northgoingzax/calendar",
-	"description": "A simple PHP class producing a Bootstrap 3 themed monthly calendar using tables.",
-	"type": "library",
-	"license": "MIT",
-	"homepage": "http://github.com/northgoingzax/calendar",
-	"keywords": [
-        	"boostrap", "calendar", "holiday", "leave", "bootstrap 3", "php", "table", "style"
-    	],
-	"authors": [
-		{
-			"name": "Alex Gordon",
-			"homepage": "http://github.com/northgoingzax"
-		}
-	],
+    "name": "northgoingzax/calendar",
+    "description": "A simple PHP class producing a Bootstrap 3 themed monthly calendar using tables.",
+    "version" : "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "http://github.com/northgoingzax/calendar",
+    "keywords": [
+            "boostrap", "calendar", "holiday", "leave", "bootstrap 3", "php", "table", "style"
+    ],
+    "authors": [
+        {
+            "name": "Alex Gordon",
+            "homepage": "http://github.com/northgoingzax"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/northgoingzax/calendar",
+        "docs": "https://northgoingzax.github.io/calendar"
+    },
     "require": {
 	"php": ">=5.4.0"
     },
-	"autoload": {
-		"psr-4": {
-			"Northgoingzax\\Calendar\\": "src"
-		}
-	}				
+    "autoload": {
+        "psr-4": {
+            "northgoingzax\\": "src"
+        }
+    }				
 }

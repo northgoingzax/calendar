@@ -32,13 +32,13 @@ class Calendar
     public $highlightClass = 'primary';
     
     /**
-     * Which Bootstrap 3 class should be applied to the background for bank holiday cells
+     * Which Bootstrap 3 class should be applied to the background for public holiday cells
      * @var string bootstrap 3 compatible colours e.g. primary, warning, danger, info
      */
-    public $bankHolidayClass = 'bankholidays';
+    public $publicHolidayClass = 'public-holiday';
     
     /**
-     * Which Bootstrap 3 class should be applied to the background for bank holiday cells
+     * Which Bootstrap 3 class should be applied to the background for public holiday cells
      * @var string bootstrap 3 compatible colours e.g. primary, warning, danger, info
      */
     public $otherDateClass = 'danger';
@@ -48,6 +48,13 @@ class Calendar
      * @var string e.g. Sunday, Monday
      */
     public $weekStartsOn = 'Monday';
+    
+    /**
+     * Default label for public holidays
+     * e.g. UK = Bank Holiday
+     * @var string
+     */
+    public $publicHolidayTerm = 'Public Holiday';
 
     
     /**
@@ -99,7 +106,7 @@ class Calendar
      * Bank holidays to highlight in a different colour if required
      * @var array Format is [0] => Y-m-d, [1] => Y-m-d
      */
-    public $bankHolidays = array();
+    public $publicHolidays = array();
     
     /**
      * Other dates to be highlighted
@@ -113,7 +120,7 @@ class Calendar
      * @param int $year full year e.g. 2017 must be 4 chars long
      * @param array $options pass any settings in one go. Use variable name followed by value, e.g. ['isWeekends']=>true
      */
-    public function __construct($year = null,$options = array()) {
+    public function __construct($year = null, $options = array()) {
         // Default to current year
         $this->year = date('Y');
         
@@ -154,41 +161,52 @@ class Calendar
     }
     
     /**
-     * Add a single day to be highlighted as a bank holiday
+     * Add a single day to be highlighted as a public holiday
      * @param string|date $day Any date that will be validated by strtotime()
      * @param string $label The label for this date
      */
-    public function addBankHoliday($day = null, $label = null) {
+    public function addPublicHoliday($day = null, $label = null) {
         $date = date('Y-m-d',strtotime($day));
-        $this->bankHolidays[] = $date;
-        $this->label[$date] = $label;
+        $this->publicHolidays[] = $date;
+        
+        // Only add if label is present
+        if (!is_null($label)) {
+            $this->label[$date] = $label;
+        }
     }
     
     /**
-     * Add multiple bank holiday dates, these can be for any month within the year
+     * Add multiple public holiday dates, these can be for any month within the year
      * @param array $days Any dates that will be converted using date & strtotime()
      */
-    public function addBankHolidays($days = array(), $label = null) {
-        foreach($days as $k => $day) {
-            $this->addBankHoliday($day, $label);
+    public function addPublicHolidays($days = array(), $label = null) {
+        foreach ($days as $k => $day) {
+            $this->addPublicHoliday($day, $label);
         }        
-    }
-    
+    }    
     /**
      * Add a single day to be highlighted as an additional category
      * @param string|date $day Any date that will be validated by strtotime()
+     * @param string $label The label for this date
      */
-    public function addOtherDate($day = null) {
-        $this->otherDates[] = date('Y-m-d',strtotime($day));
+    public function addOtherDate($day = null, $label = null) {
+        $date = date('Y-m-d',strtotime($day));
+        $this->otherDates[] = $date;
+        
+        // Only add if label is present
+        if (!is_null($label)) {
+            $this->label[$date] = $label;
+        }        
     }
     
     /**
      * Add multiple additional dates to be highlighted, these can be for any month within the year
      * @param array $days Any dates that will be validated by strtotime()
+      @param string $label The label for these dates
      */
-    public function addOtherDates($days = array()) {
-        foreach($days as $k => $day) {
-            $this->addOtherDate($day);
+    public function addOtherDates($days = array(), $label = null) {
+        foreach ($days as $k => $day) {
+            $this->addOtherDate($day, $label);
         }
     }
     
@@ -386,9 +404,14 @@ class Calendar
             $td = '<td>';
             
             // Bank holidays first
-            if(in_array($days[$i]['date'],$this->bankHolidays)) {
-                $popover = 'data-toggle="tooltip" data-placement="top" title="Bank holiday"';
-                $td = '<td class="pointer ' . $this->bankHolidayClass . '" ' . $popover . '><strong>';
+            if(in_array($days[$i]['date'],$this->publicHolidays)) {
+                if(array_key_exists($days[$i]['date'], $this->label)) {
+                    $label = addslashes($this->label[$days[$i]['date']]);
+                } else {
+                    $label = $this->publicHolidayTerm;
+                }
+                $popover = 'data-toggle="tooltip" data-placement="top" title="' . $label . '"';
+                $td = '<td class="pointer ' . $this->publicHolidayClass . '" ' . $popover . '><strong>';
             }       
             
             // Other dates next
@@ -396,14 +419,14 @@ class Calendar
                 $td = '<td class="' . $this->otherDateClass . '"><strong>';
             }       
             
-            // Highlighted days (override bank holiday highlight)
+            // Highlighted days (override public holiday highlight)
             if(in_array($days[$i]['date'],$this->highlight)) {
                 
                 // See if any labels came through
                 $popover_label = $label_class = '';
                 if(array_key_exists($days[$i]['date'], $this->label)) {
                     $label = addslashes($this->label[$days[$i]['date']]);
-                    $popover_label = 'data-toggle="tooltip" data-placement="top" title="' . $label . '"';
+                    $popover_label = 'data-toggle="tooltip" data-placement="top" data-title="' . $label . '"';
                     $label_class = "pointer";
                 }
                 
@@ -434,7 +457,7 @@ class Calendar
             }
             
             // Close highlight & bolds
-            if(in_array($days[$i]['date'],$this->highlight) || in_array($days[$i]['date'],$this->bankHolidays)) {
+            if(in_array($days[$i]['date'],$this->highlight) || in_array($days[$i]['date'],$this->publicHolidays)) {
                 $str .= '</strong>';
             }
             
