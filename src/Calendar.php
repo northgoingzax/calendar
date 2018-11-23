@@ -1,5 +1,5 @@
 <?php
-namespace Northgoingzax\Calendar;
+namespace northgoingzax;
 /**
  * github.com/northgoingzax/calendar
  * @package bs-calendar
@@ -156,18 +156,21 @@ class Calendar
     /**
      * Add a single day to be highlighted as a bank holiday
      * @param string|date $day Any date that will be validated by strtotime()
+     * @param string $label The label for this date
      */
-    public function addBankHoliday($day = null) {
-        $this->bankHolidays[] = date('Y-m-d',strtotime($day));
+    public function addBankHoliday($day = null, $label = null) {
+        $date = date('Y-m-d',strtotime($day));
+        $this->bankHolidays[] = $date;
+        $this->label[$date] = $label;
     }
     
     /**
      * Add multiple bank holiday dates, these can be for any month within the year
      * @param array $days Any dates that will be converted using date & strtotime()
      */
-    public function addBankHolidays($days = array()) {
+    public function addBankHolidays($days = array(), $label = null) {
         foreach($days as $k => $day) {
-            $this->addBankHoliday($day);
+            $this->addBankHoliday($day, $label);
         }        
     }
     
